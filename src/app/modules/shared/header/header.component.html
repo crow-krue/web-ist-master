@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand pointer" (click)="toPage('/')">{{ title }}</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav pointer" *ngFor="let link of links">
+      <a
+        [class]="
+          'nav-item nav-link ' + isCurrentLink(link.path) ? 'active' : ''
+        "
+        (click)="toPage(link.path)"
+      >
+        Home
+        <span *ngIf="isCurrentLink(link.path)" class="sr-only">
+          (current)
+        </span>
+      </a>
+    </div>
+  </div>
+  <button
+    class="btn btn-success btn-sm my-2 my-sm-0"
+    type="submit"
+    (click)="toPage('/auth')"
+  >
+    Sign In
+  </button>
+</nav>
