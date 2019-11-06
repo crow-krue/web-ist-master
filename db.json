@@ -1,0 +1,53 @@
+{
+  "users": [
+    {
+      "name": "123",
+      "email": "123",
+      "password": "123",
+      "id": 1
+    },
+    {
+      "name": "qwe",
+      "email": "qwe",
+      "password": "qwe",
+      "id": 2
+    },
+    {
+      "name": "wer",
+      "email": "wer",
+      "password": "wer",
+      "id": 3
+    },
+    {
+      "name": "wer",
+      "email": "wer",
+      "password": "wer",
+      "id": 4
+    },
+    {
+      "name": "wer",
+      "email": "wer",
+      "password": "wer",
+      "id": 5
+    },
+    {
+      "name": "123",
+      "email": "123",
+      "password": "123",
+      "id": 6
+    },
+    {
+      "name": "енорор",
+      "email": "опаоро",
+      "password": "123123",
+      "id": 7
+    },
+    {
+      "name": "ann454",
+      "email": "anya.2000@bk.ru",
+      "password": "123123",
+      "id": 8
+    }
+  ],
+  "news": []
+}

@@ -1,0 +1,17 @@
+<section formGroupName="profileForm">
+<fieldset>
+  <label>
+    Email:
+    <input type="text" formControlName="email">
+  </label>
+</fieldset>
+<fieldset>
+  <label>
+    Password:
+    <input type="text" formControlName="password">
+  </label>
+</fieldset>
+</section>
+<button [disabled]="isDisableRegisterButton" (click)="submitForm()">Register</button>
+
+
