@@ -13,6 +13,10 @@ export class HeaderComponent implements OnInit {
     {
       title: "News",
       path: "/"
+    },
+    {
+      title: "News",
+      path: "/"
     }
   ];
 

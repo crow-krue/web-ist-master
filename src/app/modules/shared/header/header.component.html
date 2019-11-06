@@ -12,8 +12,10 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav pointer" *ngFor="let link of links">
+    <!-- TODO fix incorrect navbar -->
+    <div class="navbar-nav pointer">
       <a
+        *ngFor="let link of links"
         [class]="
           'nav-item nav-link ' + isCurrentLink(link.path) ? 'active' : ''
         "
