@@ -1,27 +1,27 @@
-<!-- <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
-  <fieldset>
+<form [formGroup]="registerForm" (ngSubmit)="submitForm()">
+  <fieldset class="form-group">
     <label>
       Name:
-      <input type="text" formControlName="name">
+      <input type="text" class="form-control" formControlName="name">
     </label>
   </fieldset>
-  <fieldset>
+  <fieldset class="form-group">
     <label>
       Email:
-      <input type="text" formControlName="email">
+      <input type="text" class="form-control" formControlName="email">
     </label>
   </fieldset>
-  <fieldset>
+  <fieldset class="form-group">
     <label>
       Password:
-      <input type="text" formControlName="password" (input)="checkConfirmPassword()">
+      <input type="text" class="form-control" formControlName="password" (input)="checkConfirmPassword()">
     </label>
   </fieldset>
-  <fieldset>
+  <fieldset class="form-group">
     <label>
       Confirm password:
-      <input type="text" formControlName="confirmPassword" (input)="checkConfirmPassword()">
+      <input type="text" class="form-control" formControlName="confirmPassword" (input)="checkConfirmPassword()">
     </label>
   </fieldset>
-  <button [disabled]="isDisableRegisterButton">Register</button>
-</form> -->
+  <button [disabled]="isDisableRegisterButton" type="submit" class="btn btn-primary submit">Submit</button>
+</form>
