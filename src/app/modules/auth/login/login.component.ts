@@ -13,15 +13,7 @@ export class LoginComponent implements OnInit {
   //private isDisableRegisterButton = true;
   //private isLoading = false;
 
-  // createForm() {
-  //   this.loginForm = this.formBuilder.group({
-  //     email: ['', [Validators.email, Validators.required, Validators.pattern(/[a-z, A-Z, 0-9]/)]],
-  //     password: ['', [Validators.required, Validators.minLength(5), Validators.pattern(/[a-z, A-Z, 0-9]/)]],
-  //   });
-  // }
-
   constructor(private formBuilder: FormBuilder, private authService: AuthService) {
-    // this.createForm();
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.email, Validators.required, Validators.pattern(/[a-z, A-Z, 0-9]/)]],
       password: ['', [Validators.required, Validators.minLength(5), Validators.pattern(/[a-z, A-Z, 0-9]/)]],
@@ -29,8 +21,9 @@ export class LoginComponent implements OnInit {
   }
 
   auth () {
-    console.log("TCL: LoginComponent -> auth -> auth")
-
+    this.authService.login(this.loginForm.value).then(res => {
+      console.log(res);
+    })
   }
 
   ngOnInit () {

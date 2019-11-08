@@ -5,11 +5,13 @@ import { HttpClient } from "@angular/common/http";
   providedIn: "root"
 })
 export class AuthService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  register(user) {
+  register (user) {
     return this.http.post("http://localhost:3000/users", user).toPromise();
   }
 
-  login() {}
+  login (user) {
+    return this.http.get(`http://localhost:3000/users?email=${user.email}&password=${user.password}`).toPromise();
+  }
 }
