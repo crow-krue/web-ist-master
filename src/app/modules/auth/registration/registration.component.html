@@ -23,5 +23,6 @@
       <input type="text" class="form-control" formControlName="confirmPassword" (input)="checkConfirmPassword()">
     </label>
   </fieldset>
-  <button [disabled]="isDisableRegisterButton" type="submit" class="btn btn-primary submit">Submit</button>
+  <button [disabled]="registerForm.invalid || isInvalidConfirmPassword()" type="submit"
+    class="btn btn-primary submit">Submit</button>
 </form>
