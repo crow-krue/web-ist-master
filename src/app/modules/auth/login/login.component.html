@@ -1,14 +1,17 @@
 <form [formGroup]="loginForm" (ngSubmit)="auth()">
+  <alert *ngIf="alert.isShow" [type]="alert.type" [message]="alert.message"></alert>
   <fieldset class="form-group">
     <label>
       Email:
-      <input type="text" class="form-control" formControlName="email">
+      <input type="text" class="form-control" [class.form-control-danger]="loginForm.controls.email.invalid"
+        formControlName="email">
     </label>
   </fieldset>
   <fieldset class="form-group">
     <label>
       Password:
-      <input type="text" class="form-control" formControlName="password">
+      <input type="text" class="form-control" [class.form-control-danger]="loginForm.controls.password.invalid"
+        formControlName="password">
     </label>
   </fieldset>
   <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary submit">Submit</button>

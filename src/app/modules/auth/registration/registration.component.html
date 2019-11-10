@@ -1,4 +1,6 @@
 <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
+  <alert *ngIf="alert.isShow" [type]="alert.type" [message]="alert.message"></alert>
+
   <fieldset class="form-group">
     <label>
       Name:

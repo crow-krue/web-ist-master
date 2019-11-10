@@ -12,10 +12,10 @@
     background-color: $input-bg;
     @include box-shadow(none);
 
-    & + .input-group-append .input-group-text,
-    & ~ .input-group-append .input-group-text,
-    & + .input-group-prepend .input-group-text,
-    & ~ .input-group-prepend .input-group-text {
+    &+.input-group-append .input-group-text,
+    &~.input-group-append .input-group-text,
+    &+.input-group-prepend .input-group-text,
+    &~.input-group-prepend .input-group-text {
       border: 1px solid $primary;
       border-left: none;
       background-color: $transparent-bg;
@@ -31,13 +31,15 @@
 
   .has-danger &,
   .has-success & {
+
     &.form-control-success,
     &.form-control-danger {
       background-image: none;
+      border-color: $danger !important;
     }
   }
 
-  & + .form-control-feedback {
+  &+.form-control-feedback {
     border-radius: $border-radius-lg;
     margin-top: -7px;
     position: absolute;

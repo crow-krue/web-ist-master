@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../services/auth.service';
+import { AuthService } from '../auth.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { UserStateService } from 'src/app/services/userState.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -9,10 +11,19 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 })
 export class RegistrationComponent implements OnInit {
   registerForm: FormGroup;
-
+  alert = {
+    isShow: false,
+    type: '',
+    message: ''
+  }
   private isLoading = false;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService) {
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private userStateService: UserStateService
+  ) {
     this.registerForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.pattern(/[a-z, A-Z, 0-9]/)]],
       email: ['', [Validators.email, Validators.required]],
@@ -27,29 +38,31 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit () { }
 
-  reset (): void {
-    this.registerForm.value.name = '';
-    this.registerForm.value.email = '';
-    this.registerForm.value.password = '';
-    this.registerForm.value.confirmPassword = '';
-  }
-
-  async submitForm () {
+  submitForm () {
     this.isLoading = true;
 
-    try {
-      const response = await this.authService.register({
-        name: this.registerForm.value.name,
-        email: this.registerForm.value.email,
-        password: this.registerForm.value.password,
-      });
-      this.reset();
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setTimeout(() => {
+    this.authService.getByEmail(this.registerForm.controls.email.value).subscribe(users => {
+      if (users.length) {
+        this.alert.message = 'This user already exist!';
+        this.alert.type = 'warning';
+        this.alert.isShow = true;
+        return;
+      }
+
+      this.authService.register(this.registerForm.value).subscribe(user => {
         this.isLoading = false;
-      }, 3000);
-    }
+        this.userStateService.setUser(user);
+
+        this.router.navigate(['/']);
+      })
+    },
+      error => {
+        this.alert.message = error;
+        this.alert.type = 'danger';
+        this.alert.isShow = true;
+        return;
+      }
+    )
+
   }
 }

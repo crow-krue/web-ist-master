@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { UserStateService } from 'src/app/services/userState.service';
 
 @Component({
   selector: "app-header",
@@ -20,15 +21,15 @@ export class HeaderComponent implements OnInit {
     }
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private userStateService: UserStateService) { }
 
-  isCurrentLink(path) {
+  isCurrentLink (path) {
     return this.router.isActive(path, false);
   }
 
-  toPage(path) {
+  toPage (path) {
     this.router.navigate([path]);
   }
 
-  ngOnInit() {}
+  ngOnInit () { }
 }
