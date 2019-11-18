@@ -1,25 +1,24 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { ListNewsComponent } from './list-news/list-news.component';
-
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { HomeComponent } from "./home/home.component";
+import { ListNewsComponent } from "./list-news/list-news.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: HomeComponent
   },
   {
-    path: 'news',
+    path: "news",
     component: ListNewsComponent
   },
   {
-    path: 'bad-news',
-    redirectTo: 'news'
+    path: "bad-news",
+    redirectTo: "news"
   },
   {
-    path: '**',
-    redirectTo: ''
+    path: "**",
+    redirectTo: ""
   }
 ];
 
@@ -27,4 +26,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

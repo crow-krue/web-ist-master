@@ -1,21 +1,46 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
-  <a class="navbar-brand display-3 pointer" (click)="toPage('/')">{{ title }}</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <a class="navbar-brand display-3 pointer" (click)="toPage('/')">{{
+    title
+  }}</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse">
     <ul *ngIf="userStateService.isAuth()" class="navbar-nav mr-auto">
-      <li [class]="'nav-item' + isCurrentLink(link.path) ? 'active' : ''" *ngFor="let link of links"
-        (click)="toPage(link.path)">
+      <li
+        [class]="'nav-item' + isCurrentLink(link.path) ? 'active' : ''"
+        *ngFor="let link of links"
+        (click)="toPage(link.path)"
+      >
         <a class="nav-link pointer">
-          {{link.title}}
-          <span *ngIf="isCurrentLink(link.path)" class="sr-only">(current)</span>
+          {{ link.title }}
+          <span *ngIf="isCurrentLink(link.path)" class="sr-only"
+            >(current)</span
+          >
         </a>
       </li>
     </ul>
   </div>
-  <button class="btn btn-info btn-round btn-sm my-2 my-sm-0" type="submit" (click)="toPage('/auth')">
+  <button
+    class="btn btn-info btn-round btn-sm my-2 my-sm-0"
+    type="submit"
+    (click)="toPage('/login')"
+  >
     Sign In
+  </button>
+  <button
+    class="btn btn-info btn-round btn-sm my-2 my-sm-0"
+    type="submit"
+    (click)="toPage('/register')"
+  >
+    Sign Up
   </button>
 </nav>

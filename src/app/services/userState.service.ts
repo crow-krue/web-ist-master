@@ -1,19 +1,19 @@
 import { Injectable } from "@angular/core";
-import { UserModel } from '../models/user.model';
+import { UserModel } from "../models/user.model";
 
 @Injectable({
-    providedIn: "root"
+  providedIn: "root"
 })
 export class UserStateService {
-    private user: UserModel = null;
+  private user: UserModel = null;
 
-    constructor() { }
+  constructor() {}
 
-    setUser (user: UserModel) {
-        this.user = user;
-    }
+  setUser(user: UserModel) {
+    this.user = user;
+  }
 
-    isAuth () {
-        return this.user !== null;
-    }
+  isAuth() {
+    return this.user !== null;
+  }
 }

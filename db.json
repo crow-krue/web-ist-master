@@ -1,16 +1,17 @@
 {
   "users": [
     {
-      "name": "ann454",
-      "email": "anya.2000@bk.ru",
-      "password": "123123",
-      "id": 8
-    },
-    {
       "name": "test",
       "email": "test@test.com",
       "password": "123123",
       "id": 1
+    },
+    {
+      "name": "qwerqwer",
+      "email": "wer@ad",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "id": 2
     }
   ],
   "news": []
